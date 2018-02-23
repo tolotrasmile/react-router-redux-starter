@@ -6,6 +6,8 @@ const booksReducer = (state = {}, action) => {
       return {...state, books: action.payload}
     case 'FETCH_BOOK_BY_ID_FULFILLED' :
       return {...state, book: action.payload}
+    case 'FETCH_BOOK_BY_ID_REJECTED' :
+      return {...state, error: action.payload}
     default:
       break
   }
