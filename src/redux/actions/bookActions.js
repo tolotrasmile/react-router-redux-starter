@@ -14,11 +14,7 @@ export const fetchBookById = (id) => ({
   payload: new Promise((resolve, reject) => {
     setTimeout(() => {
       const found = books.find(book => book.id === Number(id))
-      if (found) {
-        resolve(found)
-      } else {
-        reject('Book not found')
-      }
+      found ? resolve(found) : reject('Book not found')
     }, 3000)
   })
   // fetch('http://it-ebooks-api.info/v1/book/' + id).then(book => book.json())
