@@ -1,3 +1,4 @@
+import 'whatwg-fetch'
 import books from '../../books'
 
 export const fetchBooks = () => ({
@@ -5,19 +6,20 @@ export const fetchBooks = () => ({
   payload: new Promise((resolve, reject) => {
     setTimeout(() => resolve(books), 3000)
   })
+  // fetch('http://it-ebooks-api.info/v1/search/php').then(books => books.json())
 })
 
 export const fetchBookById = (id) => ({
   type: 'FETCH_BOOK_BY_ID',
   payload: new Promise((resolve, reject) => {
     setTimeout(() => {
-      const book = books.find(book => book.id === Number(id))
-      if (book) {
-        resolve(book)
+      const found = books.find(book => book.id === Number(id))
+      if (found) {
+        resolve(found)
       } else {
         reject('Book not found')
       }
-      resolve(book)
     }, 3000)
   })
+  // fetch('http://it-ebooks-api.info/v1/book/' + id).then(book => book.json())
 })

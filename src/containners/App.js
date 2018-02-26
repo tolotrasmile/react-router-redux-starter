@@ -8,19 +8,18 @@ import Main from '../components/Main'
 import { fetchBooks } from '../redux/actions/bookActions'
 
 class App extends Component {
-
-  render() {
+  render () {
     return (
       <Router>
         <div>
-          <Header/>
-          <Main/>
+          <Header />
+          <Main />
         </div>
       </Router>
     )
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.props.fetchBooks()
   }
 }
